@@ -47,16 +47,17 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    // se passo ($id) devo usare la if, con dependency injection devo passare il model + id della rotta che in questo caso nella lista delle rotte tra {} è comic
+    public function show(Comic $comic)
     {
         // select * from comics where id = valore che gli hai passato come id
-        $infoComic = Comic::find($id);
+        // $comic = Comic::find($id);
 
-        if($infoComic){
-            return view('comic.show', compact('infoComic'));
-        }else{
-            abort(404);
-        }
+        // if($comic){
+            return view('comic.show', compact('comic'));
+        // }else{
+        //     abort(404);
+        // }
     }
 
     /**
