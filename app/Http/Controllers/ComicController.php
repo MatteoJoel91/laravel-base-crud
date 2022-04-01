@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comic;
 use Illuminate\Http\Request;
 
 class ComicController extends Controller
@@ -13,7 +14,10 @@ class ComicController extends Controller
      */
     public function index()
     {
-        //
+        $comics = Comic::all();
+
+        // return view('nome_cartella.nome_file', compact('variabile dove richiamo Comic::all()'));
+        return view('comic.index', compact('comics'));
     }
 
     /**
