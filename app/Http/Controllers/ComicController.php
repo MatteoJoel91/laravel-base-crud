@@ -49,7 +49,14 @@ class ComicController extends Controller
      */
     public function show($id)
     {
-        //
+        // select * from comics where id = valore che gli hai passato come id
+        $infoComic = Comic::find($id);
+
+        if($infoComic){
+            return view('comic.show', compact('infoComic'));
+        }else{
+            abort(404);
+        }
     }
 
     /**
