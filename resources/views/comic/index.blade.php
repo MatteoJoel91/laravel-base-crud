@@ -15,7 +15,7 @@
                 <th scope="col">Titolo</th>
                 <th scope="col">Serie</th>
                 <th scope="col">Tipo</th>
-                <th scope="col">Azioni</th>
+                <th scope="col" class="text-center">Azioni</th>
               </tr>
             </thead>
             <tbody>
@@ -26,7 +26,22 @@
                         <td>{{$comic->title}}</td>
                         <td>{{$comic->series}}</td>
                         <td>{{$comic->type}}</td>
-                        <td><a class="btn btn-primary text-light" href="{{route('comic.show', $comic->id)}}" role="button">Info</a></td>
+                        <td>
+                          <div class="d-flex">
+                            <a class="btn btn-primary text-light mx-1" href="{{route('comic.show', $comic->id)}}" role="button">Info</a>
+                            <a class="btn btn-primary text-light mx-1" href="{{route('comic.edit', $comic->id)}}" role="button">Modifica</a>
+
+                            <form method="POST" action="{{route('comic.destroy', ['comic' => $comic->id])}}">
+
+                              @csrf
+
+                              @method('DELETE')
+
+                              <button type='submit' class="btn btn-primary text-light mx-1">Elimina</button>
+
+                            </form>
+                          </div>
+                        </td>
                     </tr>
                 @endforeach
               

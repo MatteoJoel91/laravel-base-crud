@@ -42,6 +42,7 @@ class ComicController extends Controller
 
         $comic = new Comic();
 
+        // modifica al model Comic fatta altrimenti non funziona
         $comic->fill($data);
 
         $comic->save();
@@ -75,9 +76,15 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id) // senza dependency injection
     {
-        //
+        $comic = Comic::find($id);
+
+        if($comic){
+            return view('comic.edit', compact('comic'));
+        }else{
+            abort(404);
+        }
     }
 
     /**
@@ -87,9 +94,26 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->all();
+
+        // primo metodo
+        $comic->title = $data['title'];
+        $comic->description = $data['description'];
+        $comic->thumb = $data['thumb'];
+        $comic->price = $data['price'];
+        $comic->series = $data['series'];
+        $comic->sale_date = $data['sale_date'];
+        $comic->type = $data['type'];
+
+        // secondo metodo
+        // $comic->update($data);
+
+
+        $comic->save();
+                                                /*$comic->id oppure*/
+        return redirect()->route('comic.show', ['comic' => $comic->id])->with('status', 'Fumetto modificato!');
     }
 
     /**
@@ -98,8 +122,10 @@ class ComicController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return redirect()->route('comic.index')->with('status', 'Fumetto cancellato!');
     }
 }
