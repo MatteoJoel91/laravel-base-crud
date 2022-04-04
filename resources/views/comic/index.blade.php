@@ -5,8 +5,10 @@
 
 @section('content')
     <div class="container">
-        <h1 class="text-center">Lista Comics</h1>
-        <table class="table">
+      
+        <h1 class="text-center my-3">Lista Comics</h1>
+        <a class="btn btn-warning" href="{{ route('comic.create') }}" role="button">Crea nuovo fumetto</a>
+        <table class="table mt-3">
             <thead>
               <tr>
                 <th scope="col">Locandina</th>

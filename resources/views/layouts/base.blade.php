@@ -8,10 +8,20 @@
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
+
+    <!-- dati Flash -->
+    <div class="container">
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
+    </div>
+    
+
     @yield('content')
         
-
-
     <script src="{{asset('js/app.js')}}"></script>
+
 </body>
 </html>
