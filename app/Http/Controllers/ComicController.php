@@ -38,6 +38,19 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate(
+            [
+                'title' => 'required|min:4',
+                'description' => 'required|min:20',
+                'thumb' => 'required|url',
+                'price' => 'required|numeric|min:0',
+                'series' => 'required',
+                'sale_date' => 'required|date',
+                'type' => 'required'
+            ]
+        );
+
         $data = $request->all();
 
         $comic = new Comic();
@@ -96,6 +109,19 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
+
+        $request->validate(
+            [
+                'title' => 'required|min:4',
+                'description' => 'required|min:20',
+                'thumb' => 'required|url',
+                'price' => 'required|numeric|min:0',
+                'series' => 'required',
+                'sale_date' => 'required|date',
+                'type' => 'required'
+            ]
+        );
+
         $data = $request->all();
 
         // primo metodo

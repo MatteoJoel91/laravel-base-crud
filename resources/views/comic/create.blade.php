@@ -13,25 +13,25 @@
             @csrf
     
             <label for="title">Titolo</label>
-            <input type="text" class="form-control mb-3" id="title" name="title" placeholder="Inserisci il titolo">
+            <input type="text" class="form-control mb-3" id="title" name="title" placeholder="Inserisci il titolo" value="{{old('title', '')}}">
     
             <label for="floatingTextarea2">Descrizione</label>
             <textarea class="form-control mb-3" placeholder="Inserisci la descrizione" name="description" id="description" style="height: 150px"></textarea>
     
             <label for="price">Prezzo</label>
-            <input type="number" class="form-control mb-3" id="price" name="price" placeholder="Inserisci il prezzo">
+            <input type="number" class="form-control mb-3" id="price" name="price" step=".01" placeholder="Inserisci il prezzo" value="{{old('price', '')}}">
             
             <label for="type">Tipo</label>
-            <input type="text" class="form-control mb-3" id="type" name="type" placeholder="Inserisci il tipo">
+            <input type="text" class="form-control mb-3" id="type" name="type" placeholder="Inserisci il tipo" value="{{old('type', '')}}">
     
             <label for="thumb">Immagine url</label>
-            <input type="text" class="form-control mb-3" id="thumb" name="thumb" placeholder="Inserisci l'url della locandina">
+            <input type="text" class="form-control mb-3" id="thumb" name="thumb" placeholder="Inserisci l'url della locandina" value="{{old('thumb', '')}}">
     
-            <label for="price">Serie</label>
-            <input type="text" class="form-control mb-3" id="series" name="series" placeholder="Inserisci la serie">
+            <label for="series">Serie</label>
+            <input type="text" class="form-control mb-3" id="series" name="series" placeholder="Inserisci la serie" value="{{old('series', '')}}">
     
-            <label for="price">Data</label>
-            <input type="text" class="form-control" id="sale_date" name="sale_date" placeholder="Inserisci la data per lo sconto">
+            <label for="sale_date">Data</label>
+            <input type="text" class="form-control" id="sale_date" name="sale_date" placeholder="Inserisci la data per lo sconto" value="{{old('sale_date', '')}}">
     
             <button type="submit" class="btn btn-success text-light my-3">Invia</button>
           </form>

@@ -24,7 +24,7 @@ Modifica: {{$comic->series}}
             <textarea class="form-control mb-3" placeholder="Inserisci la descrizione" id="description" name="description" style="height: 150px">{{$comic->description}}</textarea>
     
             <label for="price">Prezzo</label>
-            <input type="number" class="form-control mb-3" id="price" name="price" placeholder="Inserisci il prezzo" value="{{$comic->price}}">
+            <input type="number" class="form-control mb-3" id="price" name="price" step=".01" placeholder="Inserisci il prezzo" value="{{$comic->price}}">
             
             <label for="type">Tipo</label>
             <input type="text" class="form-control mb-3" id="type" name="type" placeholder="Inserisci il tipo" value="{{$comic->type}}">
@@ -32,10 +32,10 @@ Modifica: {{$comic->series}}
             <label for="thumb">Locandina url</label>
             <input type="text" class="form-control mb-3" id="thumb" name="thumb" placeholder="Inserisci l'url della locandina" value="{{$comic->thumb}}">
     
-            <label for="price">Serie</label>
+            <label for="series">Serie</label>
             <input type="text" class="form-control mb-3" id="series" name="series" placeholder="Inserisci la serie" value="{{$comic->series}}">
     
-            <label for="price">Data</label>
+            <label for="sale_date">Data</label>
             <input type="text" class="form-control" id="sale_date" name="sale_date" placeholder="Inserisci la data per lo sconto" value="{{$comic->sale_date}}">
     
             <button type="submit" class="btn btn-success text-light my-3">Invia</button>
