@@ -18,25 +18,25 @@ Modifica: {{$comic->series}}
             @method('PUT')
 
             <label for="title">Titolo</label>
-            <input type="text" class="form-control mb-3" id="title" name="title" placeholder="Inserisci il titolo" value="{{$comic->title}}">
+            <input type="text" class="form-control mb-3" id="title" name="title" placeholder="Inserisci il titolo" value="{{old('title', $comic->title)}}">
     
             <label for="floatingTextarea2">Descrizione</label>
-            <textarea class="form-control mb-3" placeholder="Inserisci la descrizione" id="description" name="description" style="height: 150px">{{$comic->description}}</textarea>
+            <textarea class="form-control mb-3" placeholder="Inserisci la descrizione" id="description" name="description" style="height: 150px">{{old('description', $comic->description)}}</textarea>
     
             <label for="price">Prezzo</label>
-            <input type="number" class="form-control mb-3" id="price" name="price" step=".01" placeholder="Inserisci il prezzo" value="{{$comic->price}}">
+            <input type="number" class="form-control mb-3" id="price" name="price" step=".01" placeholder="Inserisci il prezzo" value="{{old('price', $comic->price)}}">
             
             <label for="type">Tipo</label>
-            <input type="text" class="form-control mb-3" id="type" name="type" placeholder="Inserisci il tipo" value="{{$comic->type}}">
+            <input type="text" class="form-control mb-3" id="type" name="type" placeholder="Inserisci il tipo" value="{{old('type', $comic->type)}}">
     
             <label for="thumb">Locandina url</label>
-            <input type="text" class="form-control mb-3" id="thumb" name="thumb" placeholder="Inserisci l'url della locandina" value="{{$comic->thumb}}">
+            <input type="text" class="form-control mb-3" id="thumb" name="thumb" placeholder="Inserisci l'url della locandina" value="{{old('thumb', $comic->thumb)}}">
     
             <label for="series">Serie</label>
-            <input type="text" class="form-control mb-3" id="series" name="series" placeholder="Inserisci la serie" value="{{$comic->series}}">
+            <input type="text" class="form-control mb-3" id="series" name="series" placeholder="Inserisci la serie" value="{{old('series', $comic->series)}}">
     
             <label for="sale_date">Data</label>
-            <input type="text" class="form-control" id="sale_date" name="sale_date" placeholder="Inserisci la data per lo sconto" value="{{$comic->sale_date}}">
+            <input type="text" class="form-control" id="sale_date" name="sale_date" placeholder="Inserisci la data per lo sconto" value="{{old('sale_date', $comic->sale_date)}}">
     
             <button type="submit" class="btn btn-success text-light my-3">Invia</button>
           </form>
